@@ -13,8 +13,10 @@ public class MainPage {
     private By accordeonsList = By.className("accordion__item");
     //Локатор для аккордеона
     private By accordeonText = By.className("accordion__panel");
-    //Локатор для кнопки "Заказать"
-    private By openFirstCreateOrderPageButton = By.xpath(".//button[@class='Button_Button__ra12g']");
+    //Локатор для кнопки "Заказать" в шапке страницы
+    private By openFirstCreateOrderPageButtonUp = By.xpath(".//button[@class='Button_Button__ra12g']");
+    //Локатор для кнопки "Заказать" внизу страницы
+    private By openFirstCreateOrderPageButtonDown = By.xpath(".//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']");
 
 
 
@@ -35,7 +37,17 @@ public class MainPage {
         return element.findElement(accordeonText).getText();
     }
 
-    public void openOrderPage () {
-        driver.findElement(openFirstCreateOrderPageButton).click();
+    public void openOrderPageButtonUp() {
+        driver.findElement(openFirstCreateOrderPageButtonUp).click();
+    }
+
+    public void scrollOrderPageButtonDown () {
+        WebElement element = driver.findElement(openFirstCreateOrderPageButtonDown);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void openOrderPageButtonDown() {
+        driver.findElement(openFirstCreateOrderPageButtonDown).click();
+
     }
 }

@@ -4,7 +4,6 @@ import ru.services.praktikum.qa.scooter.page.object.SecondCreateOrderPage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
 
 @RunWith(Parameterized.class)
 public class TestCreateOrder extends BasePage {
@@ -39,12 +38,23 @@ public class TestCreateOrder extends BasePage {
 
 
     @Test
-    public void testCreateOrder() {
-        MainPage objMainPage_ = new MainPage(driver);
+    public void testCreateOrderWithFirstCreateOrderPageButtonUp() {
+        MainPage objMainPage = new MainPage(driver);
         FirstCreateOrderPage objFirstCreateOrderPage = new FirstCreateOrderPage(driver);
         SecondCreateOrderPage objSecondCreateOrderPage = new SecondCreateOrderPage(driver);
 
-        objMainPage_.openOrderPage();
+        objMainPage.openOrderPageButtonUp();
+        objFirstCreateOrderPage.goToSecondOrderPage(this.name, this.surname, this.address, this.phoneNumber, this.metroStationIndex);
+        objSecondCreateOrderPage.createOrder(this.date, this.rentalPeriodIndex);
+    }
+    @Test
+    public void testCreadeOrderWithFirstCreateOrderPageButtonDown() {
+        MainPage objMainPage = new MainPage(driver);
+        FirstCreateOrderPage objFirstCreateOrderPage = new FirstCreateOrderPage(driver);
+        SecondCreateOrderPage objSecondCreateOrderPage = new SecondCreateOrderPage(driver);
+
+        objMainPage.scrollOrderPageButtonDown();
+        objMainPage.openOrderPageButtonDown();
         objFirstCreateOrderPage.goToSecondOrderPage(this.name, this.surname, this.address, this.phoneNumber, this.metroStationIndex);
         objSecondCreateOrderPage.createOrder(this.date, this.rentalPeriodIndex);
     }
