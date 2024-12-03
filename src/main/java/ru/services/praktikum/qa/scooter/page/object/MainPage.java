@@ -16,7 +16,7 @@ public class MainPage {
     //Локатор для кнопки "Заказать" в шапке страницы
     private By openFirstCreateOrderPageButtonUp = By.xpath(".//button[@class='Button_Button__ra12g']");
     //Локатор для кнопки "Заказать" внизу страницы
-    private By openFirstCreateOrderPageButtonDown = By.xpath(".//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']");
+    private By openFirstCreateOrderPageButtonDown = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
 
 
 

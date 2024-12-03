@@ -24,6 +24,8 @@ public class FirstCreateOrderPage {
     private By phoneNumberField = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     //Локатор для кнопки "Далее"
     private By furtherButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    //Локатор для заголовка страницы "Для кого самокат"
+    private By headingOnFirstCreateOrderPage = By.xpath(".//div[text()='Для кого самокат']");
 
     public WebDriver driver;
 
@@ -67,7 +69,7 @@ public class FirstCreateOrderPage {
 
     public void waitUntilFirstCreateOrderPageIsOpen() {
         new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[text()='Для кого самокат']")));
+                .until(ExpectedConditions.visibilityOfElementLocated(headingOnFirstCreateOrderPage));
     }
 
     public void goToSecondOrderPage(String name, String surname,String address, String phoneNumber, int metroStationIndex) {

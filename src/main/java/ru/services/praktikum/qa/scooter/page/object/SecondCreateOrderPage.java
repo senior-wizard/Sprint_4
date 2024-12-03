@@ -20,6 +20,10 @@ public class SecondCreateOrderPage {
     private By orderButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
     //Локатор для кнопки "Да" внутри окна подтверждения заказа
     private By yesButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Да']");
+    //Локатор для заголовка страницы "Про аренду"
+    private By headingOnSecondCreateOrderPage = By.xpath(".//div[text()='Про аренду']");
+    //Локатор для заголовка окна "Заказ оформлен"
+    private By createOrderWindow = By.xpath(".//div[text()='Заказ оформлен']");
 
     public WebDriver driver;
 
@@ -54,12 +58,12 @@ public class SecondCreateOrderPage {
 
     public void waitUntilSecondCreateOrderPageIsOpen() {
         new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[text()='Про аренду']")));
+                .until(ExpectedConditions.visibilityOfElementLocated(headingOnSecondCreateOrderPage));
     }
 
     public void waitUntilCreateOrderWindowIsOpen() {
         new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[text()='Заказ оформлен']")));
+                .until(ExpectedConditions.visibilityOfElementLocated(createOrderWindow));
     }
 
     public void createOrder(String date, int rentalPeriodIndex) {
